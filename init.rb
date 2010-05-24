@@ -1,0 +1,2 @@
+require "custom_date_time_formats"
+CustomDateTimeFormats.add_predefined_formats
