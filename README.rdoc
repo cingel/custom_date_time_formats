@@ -21,7 +21,6 @@ and use it like this
 or
 
   user = User.first
-  user.created_at.to_s
   user.created_at.to_s => "2010-05-20 22:00:08 UTC"
   user.created_at.to_s(:hr) => "20.05.2010. 22:00:08"
   user.created_at.to_date.to_s(:human) => "05/20/2010"
