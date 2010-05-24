@@ -1,0 +1,41 @@
+= Custom Date Time Formats
+
+Rails plugin that tries to simplify adding custom date and time formats
+
+== Installation
+
+  script/plugin install git://github.com/cingel/custom_date_time_formats.git
+
+== Usage
+
+First add your custom formats like this (ApplicationController could be a good place for this)
+
+	CustomDateTimeFormats.add_time_formats :hr => "%d.%m.%Y. %H:%M:%S", :human => "%m/%d/%Y %H:%M:%S"
+  CustomDateTimeFormats.add_date_formats :hr => "%d.%m.%Y.", :human => "%m/%d/%Y"
+	
+and use it like this
+
+	Time.now.to_s(:hr) => "24.05.2010. 15:32:01"
+	Date.today.to_s(:human) => "05/24/2010"
+
+or
+
+	user = User.first
+	user.created_at.to_s(:hr) => "20.05.2010. 22:00:08"
+	user.created_at.to_date.to_s(:human) => "05/20/2010"
+
+
+== Notes
+
+* See lib/custom_date_time_formats.rb for the list of predefined formats
+* If you add date format it will be automatically added as time format unless time format with that name already exists
+	
+	
+== Resources
+
+http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Time/Conversions.html
+http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Date/Conversions.html
+
+
+
+Copyright (c) 2010 Cingel d.o.o., released under the MIT license
