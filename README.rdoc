@@ -10,19 +10,21 @@ Rails plugin that tries to simplify adding custom date and time formats
 
 First add your custom formats like this (ApplicationController could be a good place for this)
 
-	CustomDateTimeFormats.add_time_formats :hr => "%d.%m.%Y. %H:%M:%S", :human => "%m/%d/%Y %H:%M:%S"
+  CustomDateTimeFormats.add_time_formats :hr => "%d.%m.%Y. %H:%M:%S", :human => "%m/%d/%Y %H:%M:%S"
   CustomDateTimeFormats.add_date_formats :hr => "%d.%m.%Y.", :human => "%m/%d/%Y"
 	
 and use it like this
 
-	Time.now.to_s(:hr) => "24.05.2010. 15:32:01"
-	Date.today.to_s(:human) => "05/24/2010"
+  Time.now.to_s(:hr) => "24.05.2010. 15:32:01"
+  Date.today.to_s(:human) => "05/24/2010"
 
 or
 
-	user = User.first
-	user.created_at.to_s(:hr) => "20.05.2010. 22:00:08"
-	user.created_at.to_date.to_s(:human) => "05/20/2010"
+  user = User.first
+  user.created_at.to_s
+  user.created_at.to_s => "2010-05-20 22:00:08 UTC"
+  user.created_at.to_s(:hr) => "20.05.2010. 22:00:08"
+  user.created_at.to_date.to_s(:human) => "05/20/2010"
 
 
 == Notes
